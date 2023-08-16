@@ -11,11 +11,14 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('build/assets/css/custom.css?v=1.0.5') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/css/custom.css?v=1.0.8') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/css/tailwind.css?v=1.0.8') }}">
     @livewireStyles
     <!-- Scripts -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{--  <script src="https://cdn.tailwindcss.com"></script>  --}}
+    @vite(['resources/css/app.css'])
+    @wireUiScripts
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
 <body class="font-sans antialiased">
@@ -38,6 +41,7 @@
     </div>
     @livewireScripts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+    @stack('scripts')
 </body>
 
 </html>
