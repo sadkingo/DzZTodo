@@ -58,6 +58,7 @@ class TaskController extends Controller
      */
     public function update(TaskUpdateRequest $request, string $id)
         {
+        // $request = $request->validated();
         $task = Task::with('categories', 'taskUser')->find($id);
 
         $task->title = $request->input('title');
