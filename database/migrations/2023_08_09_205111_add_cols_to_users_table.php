@@ -12,8 +12,8 @@ return new class extends Migration {
         {
         Schema::table('users', function (Blueprint $table)
             {
-            $table->string('username');
-            $table->enum('user_type',['User','admin'])->default('User');
+            $table->string('username')->after('name');
+            $table->enum('user_type',['user','admin'])->default('user')->after('username');
             });
         }
 
