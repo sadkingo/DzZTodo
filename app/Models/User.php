@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
-{
+    {
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -19,9 +19,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'username',
         'email',
         'password',
+        'username',
+        'user_type',
     ];
 
     /**
@@ -41,6 +42,12 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'password'          => 'hashed',
     ];
-}
+    public function tasks()
+        {
+            return $this->belongsToMany(Task::class)
+            ->whereNull('task_user.deleted_at')
+            ->withTimestamps();
+        }
+    }
