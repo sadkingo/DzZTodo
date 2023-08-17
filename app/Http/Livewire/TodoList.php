@@ -18,7 +18,6 @@ class TodoList extends Component
         {
         $this->loadData();
         $this->applyFilters();
-
         return view('livewire.todo-list');
         }
 

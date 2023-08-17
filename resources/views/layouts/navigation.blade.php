@@ -50,6 +50,11 @@
                         <div
                             class="relative max-h-60 overflow-auto border border-secondary-600 rounded-lg shadow-lg p-1 dark:bg-gray-800">
                             <!-- Using custom dropdown-link.blade.php component -->
+                            @if(hasPermission('admin.home', true))
+                            <x-dropdown-link href="{{ route('admin.home') }}">
+                                Admin panel
+                            </x-dropdown-link>
+                            @endif
                             <x-dropdown-link href="{{ route('profile.edit') }}">
                                 Profile
                             </x-dropdown-link>
