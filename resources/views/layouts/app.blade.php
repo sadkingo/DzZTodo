@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
 
 <head>
     <meta charset="utf-8">
@@ -16,7 +16,7 @@
     @livewireStyles
     <!-- Scripts -->
     {{--  <script src="https://cdn.tailwindcss.com"></script>  --}}
-    @vite(['resources/css/app.css'])
+    {{--  @vite(['resources/css/app.css'])  --}}
     @wireUiScripts
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
