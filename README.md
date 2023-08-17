@@ -16,7 +16,7 @@ DzZTodo aims to streamline task management by offering users the ability to crea
 - Set task priorities and due dates.
 - Access tasks from any location through the web.
 
-## Project Requirements
+## Project Specifications
 
 - **Backend Language:** PHP
 - **Database:** MySQL
