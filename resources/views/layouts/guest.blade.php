@@ -11,8 +11,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('build/assets/css/custom.css?v=1.0.8') }}">
-    <link rel="stylesheet" href="{{ asset('build/assets/css/tailwind.css?v=1.0.8') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css?v=1.0.8') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/tailwind.css?v=1.0.8') }}">
 
     <!-- Scripts -->
     <script src="//unpkg.com/alpinejs" defer></script>

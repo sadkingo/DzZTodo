@@ -17,7 +17,7 @@
 
 <body class="antialiased">
     <div class="dark:bg-gray-900 min-h-screen sm:flex sm:justify-center p-40"
-        style="background-image: url('{{ asset('build/assets/images/background.jpg') }}');background-position: center;">
+        style="background-image: url('{{ asset('assets/images/background.jpg') }}');background-position: center;">
         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @auth
