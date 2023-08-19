@@ -14,26 +14,27 @@ class TodoList extends Component
     public $user, $categories, $todoList, $search, $categorySearch;
     public $title, $category, $priority, $description, $collaborates, $dateDue;
 
-    public function render()
-        {
-        $this->loadData();
-        $this->applyFilters();
-        return view('livewire.todo-list');
-        }
-
-    private function loadData()
+    public function mount()
         {
         $this->user = User::with(['tasks', 'tasks.categories'])->find(userId());
         $this->categories = Category::get();
+        }
+    public function render()
+        {
+        $this->applyFilters();
+        return view('livewire.todo-list');
         }
 
     private function applyFilters()
         {
         if ($this->search || $this->categorySearch)
             {
+            // filtering todo list
             $this->todoList = $this->user->tasks->filter(function ($task)
                 {
+                // check if search empty or not
                 $foundInTitle = !$this->search || stripos($task->title, $this->search) !== false;
+                // check if Category is checked
                 $foundInCategories = !$this->categorySearch || $task->categories->filter(function ($category)
                     {
                     return stripos($category->name, $this->categorySearch) !== false;
@@ -55,12 +56,14 @@ class TodoList extends Component
             'description' => $this->description,
             'created_by'  => userId(),
             'date_due'    => $this->dateDue,
-            'priority'    => $this->priority ?? 'Low'
+            'priority'    => $this->priority ?? 'Low',
+            'status'      => 'Not Started'
         ]);
         $task->categories()->attach($this->category ?? 1);
 
         $this->addCollaborators($task);
 
+        $this->user->tasks->prepend($task);
         $this->resetTaskFields();
         }
 
@@ -97,11 +100,12 @@ class TodoList extends Component
 
     public function deleteTask(int $id)
         {
-        $task = Task::find($id);
+        $task = $this->user->tasks->firstWhere('id', $id);
         if ($task->created_by === userId())
             {
             $this->deleteTaskRelations($task);
             $task->delete();
+            $this->user->tasks = $this->user->tasks->where('id', '!==', $id);
             } else
             {
             throw ValidationException::withMessages(['You are not the owner']);
@@ -129,7 +133,7 @@ class TodoList extends Component
 
     public function priorityChange($id)
         {
-        $task = Task::find($id);
+        $task = $this->user->tasks->firstWhere('id', $id);
         $newPriority = $this->getNextPriority($task->priority);
         $task->priority = $newPriority;
         $task->save();
@@ -145,7 +149,7 @@ class TodoList extends Component
 
     public function statusChange($id)
         {
-        $task = Task::find($id);
+        $task = $this->user->tasks->firstWhere('id', $id);
         $newStatus = $this->getNextStatus($task->status);
         $task->status = $newStatus;
         $task->save();
