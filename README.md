@@ -44,3 +44,18 @@ DzZTodo aims to streamline task management by offering users the ability to crea
 - View a list of registered users and their tasks.
 - Edit or delete users.
 - Log out as an admin.
+### images
+![Home page](https://imgur.com/0Ed52hc)
+![Login page](https://imgur.com/9Sthwfo)
+![Register page](https://imgur.com/G0OZUNP)
+![User Dashboard](https://imgur.com/TpqpV7y)
+![Add Task](https://imgur.com/YYxHQL0)
+![Edit Task](https://i.imgur.com/1roOJs6.png)
+![Task Controller](https://imgur.com/kHe4ge1)
+![Admin Dashboard nav](https://imgur.com/VE7Djt6)
+![Admin Dashboard](https://imgur.com/Qs8aQ0Y)
+![Admin User controller](https://imgur.com/xu3rRc7)
+![Admin Task controller](https://imgur.com/MCRN4Hf)
+![Admin categories controller](https://imgur.com/KZA4FA0)
+![Admin Create](https://imgur.com/uD1CweP)
+![Admin Update](https://imgur.com/efGFr0B)
